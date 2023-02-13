@@ -7,6 +7,6 @@ void setup() {
 void loop() {
   // read the input on analog pin 0:
   // print out the value you read:
-  Serial.println("hiiiiii!!!!");
-  delay(1);  // delay in between reads for stability
+  Serial.println(123456789);
+  delay(100);  // delay in between reads for stability
 }
