@@ -1,6 +1,8 @@
 import serial
 import time
+from socketIO import sendMessage
  
+sendMessage('hi, this is from another file')
 ser = serial.Serial('COM4', 9800, timeout=1)
 time.sleep(2)
 f = open("data.js", "w+") 

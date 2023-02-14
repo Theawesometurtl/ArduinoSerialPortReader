@@ -2,6 +2,7 @@
 // from Miguel Grinberg
 
 const sio = io();
+text = document.getElementById('text');
 
 sio.on('connect', () => {
   console.log('connected');
@@ -14,7 +15,8 @@ sio.on('disconnect', () => {
   console.log('disconnected');
 });
 
-sio.on('mult', (data, cb) => {
-  const result = data.numbers[0] * data.numbers[1];
-  cb(result);
+sio.on('message', (data) => {
+  console.log('here is the message: ' + data);
+  text.innerHTML = data;
+  
 });

@@ -6,10 +6,10 @@ app = socketio.ASGIApp(sio, static_files={
 })
 
 
-async def task(sid):
-    await sio.sleep(5)
-    result = await sio.call('mult', {'numbers': [3, 4]}, to=sid)
-    print(result)
+async def sendMessage(message):
+    await sio.emit('message', message)
+    print('this ran')
+
     
 @sio.event
 async def sum(sid, data):
@@ -19,7 +19,6 @@ async def sum(sid, data):
 @sio.event
 async def connect(sid, environ):
     print(sid, 'connected')
-    sio.start_background_task(task, sid)
 
 
 @sio.event
